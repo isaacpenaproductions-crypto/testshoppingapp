@@ -1,5 +1,5 @@
 functionsDirectory = "/Users/isaacpena/AG - shopping list app/netlify/functions"
-functionsDirectoryOrigin = "config"
+functionsDirectoryOrigin = "config-v1"
 plugins = []
 headers = []
 redirects = []
