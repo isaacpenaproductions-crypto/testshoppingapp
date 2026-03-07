@@ -4,7 +4,7 @@ import json
 from unittest.mock import MagicMock, patch
 
 # Mock handler and dependencies
-from handler import main
+from index import main
 
 async def test_mock_event():
     # Mock environment variables

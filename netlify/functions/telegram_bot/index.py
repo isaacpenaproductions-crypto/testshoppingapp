@@ -26,7 +26,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         item_name = text[4:].strip()
         if item_name:
             try:
-                data, count = supabase.table('shopping_list').insert({"name": item_name}).execute()
+                response = supabase.table('shopping_list').insert({"name": item_name}).execute()
                 await update.message.reply_text(f"✅ Added '{item_name}' to the shopping list.")
             except Exception as e:
                 await update.message.reply_text(f"❌ Error adding item: {str(e)}")
@@ -49,10 +49,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Clear List: If the message is 'Clear'
     elif text.strip().lower() == 'clear':
         try:
-            # Delete all rows: common way in supabase-py is to match everything
-            # or use a filter that is always true if id is present.
-            # Here we assume there's an 'id' or we just delete where name is not null.
-            supabase.table('shopping_list').delete().neq('name', 'null').execute()
+            # Delete all rows: we use a filter that matches all items
+            supabase.table('shopping_list').delete().neq('name', '___impossible_value___').execute()
             await update.message.reply_text("🗑️ Shopping list cleared.")
         except Exception as e:
             await update.message.reply_text(f"❌ Error clearing list: {str(e)}")
