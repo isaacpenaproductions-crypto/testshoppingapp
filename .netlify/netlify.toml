@@ -1,0 +1,28 @@
+functionsDirectory = "/Users/isaacpena/AG - shopping list app/netlify/functions"
+functionsDirectoryOrigin = "config"
+plugins = []
+headers = []
+redirects = []
+
+[build]
+publish = "/Users/isaacpena/AG - shopping list app"
+publishOrigin = "default"
+functions = "/Users/isaacpena/AG - shopping list app/netlify/functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[functions]
+
+[functions."*"]

@@ -97,4 +97,24 @@ async def main(event, context):
 
 def handler(event, context):
     """Sync wrapper for the async main function."""
-    return asyncio.run(main(event, context))
+    print("--- Function Called ---")
+    print(f"Method: {event.get('httpMethod')}")
+    
+    # Simple check to see if the function is alive
+    if event.get('httpMethod') == 'GET':
+        return {
+            "statusCode": 200,
+            "body": json.dumps({
+                "status": "Function is alive!",
+                "message": "Send a POST request from Telegram to use the bot."
+            })
+        }
+        
+    try:
+        return asyncio.run(main(event, context))
+    except Exception as e:
+        print(f"CRITICAL ERROR in handler: {e}")
+        return {
+            "statusCode": 500,
+            "body": json.dumps({"error": str(e)})
+        }
