@@ -1,8 +1,8 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 // We must use the anon key for browser-based clients!
-const SUPABASE_URL = 'YOUR_SUPABASE_URL_HERE';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY_HERE';
+const SUPABASE_URL = 'https://qzmvikytwjqmxfommtxr.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF6bXZpa3l0d2pxbXhmb21tdHhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4NzA3OTIsImV4cCI6MjA4ODQ0Njc5Mn0.3mBMf6dO1oe-D38DJuYFB3w0rHB7xhdINOGAp8GyDQ0';
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
