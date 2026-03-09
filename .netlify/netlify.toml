@@ -7,11 +7,11 @@ redirects = []
 [build]
 publish = "/Users/isaacpena/AG - shopping list app"
 publishOrigin = "default"
-ignore = "git diff --quiet HEAD^ HEAD"
+commandOrigin = "config"
+command = "npm install"
 functions = "/Users/isaacpena/AG - shopping list app/netlify/functions"
 
 [build.environment]
-PYTHON_VERSION = "3.12"
 
 [build.processing]
 
@@ -28,3 +28,4 @@ PYTHON_VERSION = "3.12"
 [functions]
 
 [functions."*"]
+node_bundler = "esbuild"
