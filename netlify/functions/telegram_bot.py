@@ -32,7 +32,13 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 print(f"Attempting to add: {item_name}")
                 response = supabase.table('shopping_list').insert({"name": item_name}).execute()
                 print(f"Supabase response: {response}")
-                await update.message.reply_text(f"✅ Added '{item_name}' to the shopping list.")
+                
+                # Check if data was actually inserted. Supabase returns empty data if RLS blocks it.
+                if hasattr(response, 'data') and len(response.data) > 0:
+                    await update.message.reply_text(f"✅ Added '{item_name}' to the shopping list.")
+                else:
+                    await update.message.reply_text(f"⚠️ Operation blocked: The item wasn't added. This usually means Row Level Security (RLS) is enabled on your 'shopping_list' table without policies, or you are using the 'anon' key instead of the 'service_role' key.")
+                    
             except Exception as e:
                 print(f"Error in Add Item: {e}")
                 await update.message.reply_text(f"❌ Error adding item: {str(e)}")
