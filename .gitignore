@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 .env
 .netlify/
+test_venv/
+.venv/

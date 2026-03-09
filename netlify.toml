@@ -1,2 +1,6 @@
 [build]
   functions = "netlify/functions"
+  ignore = "git diff --quiet HEAD^ HEAD"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
