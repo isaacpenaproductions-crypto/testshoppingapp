@@ -5,3 +5,4 @@ __pycache__/
 .netlify/
 test_venv/
 .venv/
+node_modules/
